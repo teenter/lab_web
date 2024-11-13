@@ -1,0 +1,33 @@
+@import './base.css';
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
+}
+
+a,
+.green {
+  font-family: 'Times New Roman', Times, serif;
+  text-decoration: none;
+  color: rgb(10, 110, 64);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(60, 53%, 7%, 0.493);
+    border-radius: 30%;
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+    background-image: url(https://i.pinimg.com/originals/b0/02/b7/b002b730e79e8306d0cd9031a92052ec.jpg);
+  }
+
+}
