@@ -28,11 +28,11 @@ export default {
   methods: {
     async handleSubmit() {
       try {
-        const response = await axios.post('http://localhost:8001/authorisation', {
+        const response = await axios.post('http://localhost:8006/authorisation', {
           login: this.login,
           password: this.password
         })
-        this.message = response.data.message
+        
         this.token = response.data
         localStorage.setItem('jwt_token', this.token);
       } catch (error) {
@@ -44,22 +44,7 @@ export default {
 }
 </script>
 
-<style scoped>
-.form {
-  border-radius: 30%;
-  border: 4px solid black;
-  width: 300px;
-  height: 220px;
-  background-color: rgba(206, 183, 83, 0.637);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-}
+
 
 .form form {
   display: flex;
