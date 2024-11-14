@@ -1,6 +1,6 @@
 <script setup>
 import Head from './components/Head.vue'
-import RegistersInfoBar from './components/Register-Info.vue'
+import RegistersInfoBar from './components/LoadItems.vue'
 </script>
 
 <template>
@@ -20,10 +20,10 @@ import RegistersInfoBar from './components/Register-Info.vue'
 export default {
   data() {
     return {
-      registerItems: [], // массив для данных из таблицы register
-    };
-  },
-};
+      registerItems: [] // массив для данных из таблицы register
+    }
+  }
+}
 </script>
 
 <style scoped>
@@ -43,4 +43,3 @@ header {
   }
 }
 </style>
-

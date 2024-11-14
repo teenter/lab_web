@@ -1,14 +1,13 @@
-import './assets/main.css';
+import './assets/main.css'
 
-import { createApp } from 'vue';
-import App from './App.vue';
-import router from './router';
-import RegistersInfoBar from './components/Register-Info.vue';
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from './router'
+import RegistersInfoBar from './components/LoadItems.vue'
 
-const app = createApp(App);
+const app = createApp(App)
 
 // Регистрация компонента PersonsInfoBar глобально
-app.component('RegistersInfoBar', RegistersInfoBar);
+app.component('RegistersInfoBar', RegistersInfoBar)
 
-app.use(router).mount('#app');
-
+app.use(router).mount('#app')
