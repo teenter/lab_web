@@ -26,7 +26,7 @@ export default {
   methods: {
     async handleSubmit() {
       try {
-        const response = await axios.post('http://localhost:8012/registration', {
+        const response = await axios.post('http://localhost:8012/register', {
           login: this.login,
           password: this.password
         })
