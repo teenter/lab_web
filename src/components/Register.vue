@@ -26,7 +26,7 @@
     methods: {
       async handleSubmit() {
         try {
-          const response = await axios.post('http://localhost:8001/registration', {
+          const response = await axios.post('http://localhost:8012/register', {
             login: this.login,
             password: this.password
           });

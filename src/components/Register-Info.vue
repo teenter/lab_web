@@ -10,43 +10,49 @@
 </template>
 
 <script>
-import axios from 'axios';
-import RegisterListElement from './Register-List.vue';
+import RegisterListElement from './Register-List.vue'
 
 export default {
   name: 'RegistersInfoBar',
   components: {
-    RegisterListElement,
+    RegisterListElement
   },
   props: ['registerItems'],
   methods: {
     async load() {
-      const JWT = localStorage.getItem('jwt_token');  // Получаем токен из localStorage
+      const JWT = localStorage.getItem('jwt_token') // Get token from localStorage
 
       if (!JWT) {
-        console.error('JWT token is missing');
-        return;
+        console.error('JWT token is missing')
+        return
       }
-
-      const headers = {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + JWT,
-      };
 
       try {
-        const response = await axios.get('http://localhost:8080/data', { headers });
-        console.log(response.data);  // Для отладки
-        // Используем событие для обновления данных в родительском компоненте
-        this.$emit('update-register-items', response.data);
+        const apiUrl = 'http://localhost:8080/data/posts'
+        const requestOptions = {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + JWT
+          }
+        }
+        fetch(apiUrl, requestOptions)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok')
+            }
+            return response.json()
+          })
+          .then((data) => {
+            console.log(data)
+          })
+          .catch((error) => {
+            console.error('Error:', error)
+          })
       } catch (error) {
-        console.error('Error loading register data:', error);
+        console.error('Error loading register data:', error)
       }
-    },
-  },
-};
+    }
+  }
+}
 </script>
-
-
-
-
-    

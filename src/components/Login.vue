@@ -28,13 +28,14 @@ export default {
   methods: {
     async handleSubmit() {
       try {
-        const response = await axios.post('http://localhost:8001/authorisation', {
+        const response = await axios.post('http://localhost:8012/authorization', {
           login: this.login,
           password: this.password
         })
         this.message = response.data.message
         this.token = response.data
-        localStorage.setItem('jwt_token', this.token);
+        console.log(this.token)
+        localStorage.setItem('jwt_token', this.token)
       } catch (error) {
         this.message =
           'An error occurred: ' + (error.response ? error.response.data.message : error.message)
@@ -96,6 +97,6 @@ h3 {
 }
 
 .submit {
-    margin-top: 15px;
-  }
+  margin-top: 15px;
+}
 </style>
